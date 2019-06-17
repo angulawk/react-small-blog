@@ -2,13 +2,20 @@ import React from 'react';
 
 import './Post.css';
 
-const post = (props) => (
-    <article className="Post">
-        <h1>Title</h1>
-        <div className="Info">
-            <div className="Author">Author</div>
-        </div>
-    </article>
-);
+function Post({ title, author, onClick, id }) {
+    function handlePostClick() {
+        onClick(id);
+    }
 
-export default post;
+    return (
+        <article className="Post" onClick={handlePostClick}>
+            <h1>{title}</h1>
+            <div className="Info">
+                <div className="Author">{author}</div>
+            </div>
+        </article>
+    )
+}
+
+
+export default Post;
